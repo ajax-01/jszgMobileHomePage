@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>首页</title>
+	<script>
+		window.onload = function () {
+			getRem(1920, 100)
+		};
+		window.onresize = function () {
+			getRem(1920, 100)
+		};
+		function getRem(pwidth, prem) {
+			var html = document.getElementsByTagName("html")[0];
+			var oWidth = document.body.clientWidth || document.documentElement.clientWidth;
+			html.style.fontSize = oWidth / pwidth * prem + "px";
+		}
+
+	</script>
+	<link rel="stylesheet" type="text/css" href="/grzx/css/media1.css" />
+	<link rel="stylesheet" type="text/css" href="/grzx/css/firstpage.css" />
+</head>
+
+<body>
+	<div id="topnav">
+		<div class="layer clearfix">
+			<ul class="fl left">
+				<li class="mr40"><a href="index.html">首页</a></li>
+				<li class="mr40"><a onclick="gotokec()">课程</a></li>
+				<li class="mr40"><a onclick="gototik()">题库</a></li>
+				<li class="mr40"><a onclick="gotoshud()">书店</a></li>
+				<li class="mr40"><a onclick="gotozhib()">直播</a></li>
+				<li><a href="javascript:void(0)"><img src="img/icon_phone.png" class="mr10 phone"> App下载</a></li>
+			</ul>
+			<ul class="fr right">
+				<li>
+					<a href=""><img src="/grzx/img/man.png" class="tou"> <span class="nickName"></span> </a>
+				</li>
+				<li class="line"></li>
+				<li class="mr40" onclick="gotogouwu()" style="cursor: pointer;">
+					<img src="/grzx/img/shopcar.png" class="icon-shop">购课车
+				</li>
+				<li><a href="">在线咨询</a></li>
+				<li class="sign">
+					<div class="sign_in">登录</div>
+					<div class="sign_out">退出登录</div>
+				</li>
+			</ul>
+			<!-- 登录/退出 -->
+
+		</div>
+
+	</div>
+	<div id="bg">
+		<p class="welcom"><span class="nickName2">学考学考</span>，欢迎您～</p>
+		<div class="userinfo">
+			<img src="img/man.png" class="touxiang">
+		</div>
+	</div>
+
+	<div id="bg2" class="layer">
+		<img src="./img/ad.png">
+	</div>
+	<div id="neirong" class="layer">
+		<div class="fl sidebar">
+			<ul>
+				<a href="page/shouye.html" target="mainwindow" class="sy changebg active">
+					<li>
+						<img src="img/icon_home1.png" class="icon-home-11">个人中心
+					</li>
+				</a>
+				<li class="line3"></li>
+				<li class="wdkc">
+					<ul class="list">
+						<a>
+							<li class="oneli">我的课程</li>
+						</a>
+						<a href="page/wdkc/kstk.html" target="mainwindow" class="active">
+							<li class="" id="kstk"><img src="img/icon_class.png" class="size">开始听课</li>
+						</a>
+						<a href="page/wdkc/LectureRecord.html" style="display: none!important;" class="active"
+							target="mainwindow">
+							<li><img src="img/icon_record.png" class="size">听课记录</li>
+						</a>
+						<a href="page/wdkc/CurriculumCenter.html" class="active" target="mainwindow">
+							<li><img src="img/icon_center.png" class="size">课程中心</li>
+						</a>
+					</ul>
+				</li>
+				<li class="line3"></li>
+				<li class="wdtk">
+					<ul class="list">
+						<a href="javascript:void(0)">
+							<li class="oneli">我的题库</li>
+						</a>
+						<a href="page/wdtk/kszt.html" target="mainwindow" class="active">
+							<li id="kszt"><img src="img/icon_write.png" class="size">开始做题</li>
+						</a>
+						<a href="http://www.ahjszgw.com/ahstzl/" target="_blank" class="active">
+							<li><img src="img/icon_history.png" class="size">历年题库</li>
+						</a>
+						<!-- <a href="page/wdtk/jczx.html" target="mainwindow" class="active"><li><img src="img/icon_material.png" class="size">教材中心</li></a>	 -->
+					</ul>
+				</li>
+				<li class="line3"></li>
+				<li class="grgl">
+					<ul class="list">
+						<a href="javascript:void(0)">
+							<li class="oneli">个人管理</li>
+						</a>
+						<a href="page/grgl/gwc.html" class="active" target="mainwindow">
+							<li><img src="img/shopcar.png" class="size">购物车</li>
+						</a>
+						<a href="page/grgl/wddd.html" class="active" target="mainwindow">
+							<li><img src="img/icon_order.png" class="size">我的订单</li>
+						</a>
+						<a href="page/grgl/wallet.html" class="active" target="mainwindow">
+							<li><img src="img/icon_wallet.png" class="size">我的钱包</li>
+						</a>
+						<a href="page/grgl/zhaq.html" target="mainwindow" class="active">
+							<li><img src="img/icon_security.png" class="size">账户安全</li>
+						</a>
+					</ul>
+
+				</li>
+				<li class="line3"></li>
+			</ul>
+		</div>
+		<!-- 每日一练的弹窗 -->
+		<div class="dialogbox">
+			<div class="dialog">
+				<div class="title">
+					<div class="text">试题报告</div>
+					<div class="close">×</div>
+				</div>
+				<div class="cnnent">
+					<div class="yuan"> <span class="num">0</span> %</div>
+					<div class="tips">
+						正确率=做对题目 <span class="succ_num"></span> / 已做数量 <span class="doed_num"></span>
+					</div>
+				</div>
+				<div class="submit">查看本次错题</div>
+			</div>
+		</div>
+
+		<!-- 购物车删除 -->
+		<div class="tipsdialogbox">
+			<div class="tipsdialog">
+				<div class="title">
+					<div class="text">提示</div>
+					<div class="close">×</div>
+				</div>
+				<div class="connent">确认要删除吗</div>
+				<div class="submit">
+					<div class="quxiao">取消</div>
+					<div class="queren">确认</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 账户异常显示窗口 -->
+		<div class="tipsdialogbox1">
+			<div class="tipsdialog1">
+				<div class="title1">
+					<div class="text1">提示</div>
+					<div class="close1">×</div>
+				</div>
+				<div class="connent1">连接超时或未登录，请重新登录！</div>
+				<div class="submit1">
+					<!-- <div class="quxiao1">取消</div> -->
+					<div class="queren1">确认</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 保存密码的提示 -->
+		<div class="tlk_tipsdialogbox">
+			<div class="tlk_tipsdialog">
+				<div class="tlk_title">
+					<div class="tlk_text">提示</div>
+					<div class="tlk_close">×</div>
+				</div>
+				<div class="tlk_connent">保存成功</div>
+				<div class="tlk_submit">
+					<!-- <div class="tlk_quxiao">取消</div> -->
+					<div class="tlk_queren">确认</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 个人资料修改密码弹窗 -->
+		<div class="tlk_tipsdialogbox1">
+			<div class="tlk_tipsdialog1">
+				<div class="tlk_title1">
+					<div class="tlk_text1">修改密码</div>
+					<div class="tlk_close1">×</div>
+				</div>
+				<div class="connent">
+					<div class="oldpassword"><span>原密码：</span><input class="oldpasswordspan" type="password"
+							name="oldpassword" id="" value="" />
+					</div>
+					<div class="newpassword"><span>新密码：</span><input class="newpasswordspan" type="password"
+							maxlength="11" minlength="6" name="newpassword" id="" value="" />
+					</div>
+				</div>
+				<div class="tlk_submit1">
+					<div class="tlk_quxiao1">取消</div>
+					<div class="tlk_queren1">确认</div>
+				</div>
+			</div>
+		</div>
+
+
+		<section class="fr">
+			<iframe src="page/shouye.html" name="mainwindow" frameborder="0px" class="changehtml"
+				onload="this.height=mainwindow.document.body.scrollHeight"></iframe>
+		</section>
+	</div>
+	<script src="/grzx/js/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="/grzx/js/index.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+	</script>
+
+</body>
+
+</html>

@@ -1,0 +1,141 @@
+@import url("../clean.css");
+.tlk_big_box{
+    width: 14rem;
+	margin: 0 auto;
+}
+.tlk_mnkc_title{
+	margin:0.1rem  0;
+	font-size: 0.14rem;
+	color: #333333;
+}
+.tlk_top_content{
+	padding: 0 0.8rem;
+	background-color: #FFFFFF;
+}
+.tlk_mn_title{
+	font-size: 0.24rem;
+	color: #333333;
+	text-align: center;
+	line-height: 1rem;
+	border-bottom: solid 0.01rem #e5e5e5;
+}
+.tlk_remind{
+	padding-left: 0.3rem;
+	display: flex;
+	flex-wrap: wrap;
+	width: 4.79rem;
+	margin: 0.4rem auto;
+}
+.tlk_remind li{
+	margin: 0.1rem 0;
+	width: 50%;
+	float: left;
+	font-size: 0.16rem;
+}
+.tlk_xuanzhe{
+	padding-bottom: 0.4rem;
+	width: 4.79rem;
+	display: flex;
+	margin: 0 auto;
+	justify-content: space-around;
+	align-items: center;
+}
+.tlk_left_button{
+	width: 1.66rem;
+    height: 0.42rem;
+	cursor: pointer;
+	border-radius: 0.06rem;
+	background-color: #ff6949;
+	text-align: center;
+	color: #FFFFFF;
+	line-height: 0.42rem;
+}
+.tlk_left_button a{
+	width: 100%;
+	height: 100%;
+	display: inline-block;
+	color: #FFFFFF;
+}
+.tlk_left_button a:hover{
+	color: #FFFFFF;
+}
+.tlk_right_button{
+	cursor: pointer;
+	width: 1.66rem;
+	height: 0.42rem;
+	border-radius: 0.06rem;
+	border: solid 0.01rem #ff403a;
+	text-align: center;
+	color: #ff403a;
+	line-height: 0.42rem;
+}
+.tlk_right_button a{
+	width: 100%;
+	height: 100%;
+	display: inline-block;
+	color: #FFFFFF;
+}
+.tlk_right_button a:hover{
+	color: #FFFFFF;
+}
+.tlk_center_content{
+	padding: 0 0.8rem;
+	margin-top: 0.3rem;
+	background-color: #FFFFFF;
+}
+.tlk_center_title{
+	position: relative;
+	border-bottom: solid 0.01rem #e5e5e5;
+    height: 0.36rem;
+}
+.tlk_center_title img{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.tlk_center_title span{
+	line-height: 0.36rem;
+	display: inline-block;
+	font-size: 0.18rem;
+}
+.tlk_center_introduce{
+	padding-top: 0.17rem;
+}
+.tlk_timu{
+   margin-left: 0.2rem;
+  font-size: 0.12rem;
+}
+.tlk_timi_top{
+	/* margin-top: 0.17rem; */
+}
+.tlk_display{
+	display: flex;
+	align-items: center;
+}
+.tlk_yuan{
+	display: inline-block;
+	width: 0.06rem;
+	height: 0.06rem;
+	border-radius:50% ;
+	background-color: #ff403a;
+}
+.tlk_item_ti{
+	padding: 0.17rem 0.3rem 0.17rem 0.05rem;
+}
+.tlk_item_ti>div{
+	padding-left: 0.2rem;
+	line-height: 0.4rem;
+	background-color: #fafafa;
+}
+.dialog-footer .el-button--primary{
+	border-color: white;
+    background-image: linear-gradient(0deg, #ff403a 0%, #ff6949 100%);
+}
+.dialog-footer .el-button--primary:hover {
+    border-color: white;
+    background-image: linear-gradient(0deg, #ff403a 0%, #ff6949 100%);
+}
+.tlk_font_jiao {
+    font-size: 0.16rem;
+    text-align: center;
+}

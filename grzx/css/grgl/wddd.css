@@ -1,0 +1,359 @@
+@import url("../clean.css");
+
+/* input{
+	display: none;
+} */
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+.lmw_top {
+    height: 0.6rem;
+    padding-left: 0.3rem;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border-radius: 0.06rem;
+    font-size: 0.14rem;
+    border-radius: 0.06rem !important;
+    padding-top: 0.03rem;
+    box-sizing: border-box;
+}
+
+.lmw_top .lmw_top1 {
+    height: 0.48rem;
+    margin-top: 0.06rem;
+    line-height: 0.4rem;
+}
+
+.lmw_top span {
+    margin-right: 0.56rem;
+    cursor: pointer;
+}
+
+.lmw_top .lmw_qb {
+    width: 0.36rem;
+    display: inline-block;
+}
+
+.lmw_top .lmw_pay {
+    width: 0.5rem;
+    display: inline-block;
+}
+
+.lmw_top .lmw_ykt {
+    width: 0.5rem;
+    display: inline-block;
+}
+
+.lmw_shopcar {
+    position: relative;
+    min-height: 6rem;
+    background-color: white;
+    margin-top: 0.1rem;
+    border-radius: 0.06rem;
+    box-sizing: border-box;
+    padding-top: 0.2rem;
+}
+
+.lmw_shopcar .lmw_carnr {
+    width: 10.64rem;
+    margin: 0 auto;
+    padding-bottom: 1px;
+}
+
+.lmw_shopcar .lmw_carnr .lmw_qx {
+    height: 0.46rem;
+    background-color: #f9f9f9;
+    line-height: 0.46rem;
+    box-sizing: border-box;
+    padding-left: 0.4rem;
+    color: #666;
+}
+
+/* .lmw_label::before{
+	display: inline-block;
+	content: "";
+	width: 0.1rem;
+	height: 0.1rem;
+	border: solid 0.01rem #666666;
+	vertical-align: middle;
+	margin-right: 0.04rem;
+	position: relative;
+	bottom: 0.01rem;
+}
+
+.lmw_input:checked+.lmw_label::before{
+	background-color: red;
+} */
+.lmw_input {
+    width: 0.15rem;
+    height: 0.15rem;
+    vertical-align: middle;
+    border-radius: none;
+    position: relative;
+    bottom: 0.01rem;
+}
+
+.lmw_shopcar .lmw_carnr .lmw_qx ul li {
+    float: left;
+}
+
+.lmw_li1 {
+    margin-right: 1.88rem;
+}
+
+.lmw_li2 {
+    margin-right: 2.72rem;
+}
+
+.lmw_li3 {
+    margin-right: 1.32rem;
+}
+
+.lmw_li4 {
+    margin-right: 1.54rem;
+}
+
+.lmw_shopcar .lmw_carnr .lmw_buybooks {
+    margin-top: 0.11rem;
+    box-sizing: border-box;
+    margin-bottom: 0.3rem;
+}
+
+.lmw_shopcar .lmw_carnr .lmw_buybooks .lmw_ddbh {
+    height: 0.46rem;
+    line-height: 0.46rem;
+    background-color: #f9f9f9;
+    border: solid 0.01rem #f5f5f5;
+    border-bottom: none;
+    padding-left: 0.38rem;
+    font-size: 0.14rem;
+}
+
+.lmw_shopcar .lmw_carnr .lmw_buybooks .lmw_ddbh span {
+    color: #999;
+}
+
+.lmw_shopcar .lmw_carnr .lmw_buybooks .lmw_ddbh ul li {
+    float: left;
+}
+
+.lmw_bh {
+    margin-right: 4.8rem;
+}
+
+.lmw_time {
+    margin-right: 0.3rem;
+}
+
+.lmw_kfimg {
+    width: 0.22rem;
+    height: 0.22rem;
+    margin-right: 0.05rem;
+}
+
+.lmw_buybooks .lmw_kc {
+    width: 10.64rem;
+    margin-bottom: 0.43rem;
+}
+
+.lmw_buybooks .lmw_kc .lmw_boder {
+    height: 1.7rem;
+    border-left: solid 0.01rem #f5f5f5;
+    border-right: solid 0.01rem #f5f5f5;
+    border-bottom: solid 0.01rem #f5f5f5;
+}
+
+.lmw_kc .lmw_shop {
+    height: 1.7rem;
+    width: 5.32rem;
+    box-sizing: border-box;
+    padding-left: 0.3rem;
+    padding-top: 0.19rem;
+    padding-bottom: 0.2rem;
+
+    border-right: solid 0.01rem #f5f5f5;
+    display: flex;
+    align-items: center;
+}
+
+.lmw_kc .lmw_shop .lmw_shopimg {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+.lmw_kc .lmw_shop .lmw_shopimg .lmw_bookimgs {
+    width: 1.4rem;
+    height: 1.32rem;
+    margin-left: 0.15rem;
+    margin-right: 0.2rem;
+}
+
+.lmw_kc .lmw_shop .lmw_shopimg .lmw_shopcerten {
+    width: 2.88rem;
+    margin-top: 0.07rem;
+    font-size: 0.16rem;
+    color: #333;
+}
+
+.lmw_kc .lmw_shop .lmw_shopimg .lmw_shopcerten .lmw_teachername {
+    color: #666;
+    margin-top: 0.53rem;
+}
+
+.lmw_kc .lmw_boder .lmw_money {
+    width: 1.56rem;
+    height: 1.7rem;
+    border-right: solid 0.01rem #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lmw_kc .lmw_boder .lmw_money .lmw_moneystyle {
+    font-family: Arial-BoldMT;
+    font-size: 0.2rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 0.24rem;
+    letter-spacing: 0rem;
+    color: #ff403a;
+}
+
+.lmw_kc .lmw_boder .lmw_paystatus {
+    width: 2rem;
+    height: 1.7rem;
+    border-right: solid 0.01rem #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lmw_kc .lmw_boder .lmw_paystatus .lmw_statusstyle {
+    font-size: 0.16rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 0.24rem;
+    letter-spacing: 0rem;
+    color: #ff403a;
+}
+
+.lmw_kc .lmw_boder .lmw_caozuo {
+    width: 1.7rem;
+    height: 1.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lmw_kc .lmw_boder .lmw_caozuo .lmw_btns {
+    /* height: 0.82rem; */
+    width: 0.92rem;
+}
+
+.lmw_kc .lmw_boder .lmw_caozuo button {
+    background: none;
+    border: none;
+    outline: none;
+    border-radius: 0.18rem;
+    width: 0.92rem;
+    height: 0.36rem;
+    cursor: pointer;
+    text-align: center;
+}
+
+.lmw_kc .lmw_boder .lmw_caozuo .lmw_qjs {
+    /* margin-bottom: 0.1rem; */
+    text-align: center;
+}
+
+.lmw_buybooks .lmw_qjst {
+    width: 10.65rem;
+    height: 0.5rem;
+    padding-left: 0.3rem;
+    background-color: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.lmw_buybooks .lmw_qjst .lmw_qxbtn {
+    width: 0.15rem;
+    height: 0.15rem;
+    margin-right: 0.08rem;
+}
+
+.lmw_buybooks .lmw_qjst .lmw_delet {
+    color: #666;
+    margin-left: 0.4rem;
+    margin-right: 5rem;
+}
+
+.lmw_buybooks .lmw_qjst .lmw_zj {
+    margin-left: 0.3rem;
+}
+
+.lmw_buybooks .lmw_qjst .lmw_allmoney {
+    margin-left: 0.18rem;
+}
+
+.lmw_buybooks .lmw_qjst .lmw_go {
+    width: 1.32rem;
+    height: 0.5rem;
+    background-image: linear-gradient(0deg,
+            #ff403a 0%,
+            #ff6949 100%);
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 0.18rem;
+    margin-left: auto;
+}
+
+.lmw_shownum {
+    font-size: 0.18rem;
+}
+
+.lmw_showprice {
+    font-weight: bold;
+    font-size: 0.2rem;
+}
+
+.tlk_notbuybooks {
+    color: #969696;
+    width: 1.2rem;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    height: 3.2em;
+    text-align: center;
+    font-size: 0.2rem;
+}
+
+.tlk_notbuybooks .tlk_buy_button_sp:hover {
+    background-image: linear-gradient(0deg, #ff5b56 0%, #ffac99 100%);
+    color: rgb(226, 226, 226)
+}
+
+.tlk_notbuybooks .tlk_buy_button_sp {
+    transition: 1s;
+    transition: 1s;
+    cursor: pointer;
+    /*  width: 1.22rem;
+	    height: 0.36rem; */
+    background-image: linear-gradient(0deg, #ff403a 0%, #ff6949 100%);
+    border-radius: 0.18rem;
+    text-align: center;
+    line-height: 0.36rem;
+    color: #fff;
+    font-size: 0.16rem;
+    margin-top: 0.2rem;
+}
+.tlk_lsp{
+    margin-right: 0.2rem;
+}

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>我的钱包</title>
+    <script>
+        window.onload = function () {
+            /* 720代表设计师给的设计稿的宽度，你的设计稿是多少，就写多少;100代表换算比例，这里写100是
+              为了以后好算,比如，你测量的一个宽度是100px,就可以写为1rem,以及1px=0.01rem等等 */
+            getRem(1124, 100)
+        };
+        window.onresize = function () {
+            getRem(1124, 100)
+        };
+        function getRem(pwidth, prem) {
+            var html = document.getElementsByTagName("html")[0];
+            var oWidth = document.body.clientWidth || document.documentElement.clientWidth;
+            html.style.fontSize = oWidth / pwidth * prem + "px";
+        }
+    </script>
+    <link rel="stylesheet" type="text/css" href="../../css/media2.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/clean.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/grgl/wallet.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/element-ui.css" />
+    <style type="text/css">
+        [v-cloak] {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wallet_nav">
+        <div class="red_enve gyh_bottom_red">红包</div>
+        <div class="coupon">优惠券</div>
+    </div>
+    <div class="wallet_conn" id="app" v-cloak>
+        <div class="wallet_total">
+            <div class="wallet_money">
+                累计红包总数：<span class="wallet_money_num">{{hongbao || 0}}</span> 元
+            </div>
+        </div>
+        <div class="coupon_nav">
+            <div class="coupon_succ " @click="coupon_succ" :class="flag_1?'gyh_coupon_nav_active':''">可用优惠券( <span
+                    class="succ_num">{{succ_num}}</span> ) </div>
+            <div class="coupon_fail" @click="coupon_fail" :class="flag_2?'gyh_coupon_nav_active':''">失效优惠券( <span
+                    class="fail_num">{{fail_num}}</span> )</div>
+
+        </div>
+        <!-- 这里放置分页页面 -->
+        <div class="info">
+            <div class="wallet_info">
+                <!-- <div @click="getEnvelopes">领取红包</div>
+                <div @click="getCoupon">领取优惠卷</div> -->
+                <div style="padding: 0 0.3rem;">
+                    <el-table v-loading="listLoading" element-loading-text="数据加载中，请稍后..." empty-text="对不起，没有找到相关数据！"
+                        :data="redPaper" style="width: 100%" :header-cell-style="{background:'#f5f5f5'}">
+                        <el-table-column label="来源/用途" align="center" width="180">
+                            <template slot-scope="scope">
+                                <span></span>
+                            </template>
+                        </el-table-column>
+                        <el-table-column align="center" label="红包变化" width="180">
+                            <template slot-scope="scope">
+                                <span>+{{ scope.row.redEnvelope }}</span>
+                            </template>
+                        </el-table-column>
+                        <el-table-column label="备注" align="center">
+                            <template slot-scope="scope">
+                                <span>{{ scope.row.remarks }}</span>
+                            </template>
+                        </el-table-column>
+                        <el-table-column label="日期" align="center">
+                            <template slot-scope="scope">
+                                <span>{{ scope.row.receiveTime }}</span>
+                            </template>
+                        </el-table-column>
+                    </el-table>
+                    <div class="pagination-container">
+                        <el-pagination background @size-change="handleSizeChange" @current-change="handleCurrentChange"
+                            :current-page="listQuery.currentPage" :page-sizes="[1,20,30, 50,100,200]"
+                            :page-size="listQuery.pageSize" layout="total, sizes, prev, pager, next, jumper"
+                            :total="total">
+                        </el-pagination>
+                    </div>
+                </div>
+            </div>
+            <!-- 这个div只是占位意义 -->
+            <div style="width: 100%;height: 0.1rem;background: #f5f5f5;"></div>
+            <!-- 这个div只是占位意义 -->
+            <div class="coupon_info" v-if="flag_1">
+                <div v-show="succ_show" v-for="(item,i) in list" :key="i">
+                    <div class="coupon_unit" :data-id="item.id" :data-withSn="item.withSn">
+                        <div class="unit_left"
+                            :style="item.status==1?'background: url(../../img/wallet/coupon.png)':'background: url(../../img/wallet/coupon1.png)'">
+                            <div class="unit_num">¥ <span class="num">{{item.usedAmount}}</span></div>
+                            <div class="unit_type" v-if="item.type==1">新人券</div>
+                            <div class="unit_type" v-if="item.type==2">立减券</div>
+                            <div class="unit_type" v-if="item.type==3">折扣券</div>
+                            <div class="unit_type" v-if="item.type==''">全场通用</div>
+                        </div>
+                        <div class="unit_right">
+                            <div class="title">{{item.title}} </div>
+                            <div class="time">有效期至{{ item.validEndTime | youhuaTime}}</div>
+                            <div class="block"></div>
+                            <div class="range_box">
+                                <div class="range">使用范围：<span
+                                        class="range_type">{{item.withSn==''?'全场通用':'课程专用' }}</span>
+                                </div>
+                                <div class="timeover_tips" v-if="item.fail_time">即将过期
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fail_tips" v-if="item.status==0">
+                            <img src="../../img/wallet/Expired.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="show" v-show="succ_show2">优惠券空空如也</div>
+            </div>
+            <div class="coupon_info" v-if="flag_2" :data="flag_2">
+                <div v-show="fail_show" v-for="(ite,index) in fail_list" :key="index">
+                    <div class="coupon_unit" :data-id="ite.id" data-withSn="ite.withSn">
+                        <div class="unit_left"
+                            :style="ite.status==0?'background: url(../../img/wallet/coupon.png)':'background: url(../../img/wallet/coupon1.png)'">
+                            <div class="unit_num">¥ <span class="num">{{ite.usedAmount}}</span></div>
+                            <div class="unit_type" v-if="ite.type==1">新人券</div>
+                            <div class="unit_type" v-if="ite.type==2">立减券</div>
+                            <div class="unit_type" v-if="ite.type==3">折扣券</div>
+                            <div class="unit_type" v-if="ite.type==''">全场通用</div>
+                        </div>
+                        <div class="unit_right">
+                            <div class="title">{{ite.title}} </div>
+                            <div class="time">有效期至{{ite.validEndTime | youhuaTime}}</div>
+                            <div class="block"></div>
+                            <div class="range_box">
+                                <div class="range">使用范围：<span class="range_type"
+                                        data-withSn="ite.withSn">{{ite.withSn==null?'全场通用':'课程专用' }}</span> </div>
+                                <div class="timeover_tips" data="ite.failureTime" data-gyh="gyh" v-if="ite.status==0"
+                                    v-text="value">
+                                    {{ ite.failureTime | getFailureTime}}</div>
+                            </div>
+                        </div>
+                        <div class="fail_tips" v-if="ite.status==1">
+                            <img src="../../img/wallet/Expired.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="show" v-show="fail_show2">优惠券空空如也</div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+<script src="../../js/vue.js"></script>
+<script src="../../js/element-ui.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/ajax.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../js/gyh/wallet.js" type="text/javascript" charset="utf-8"></script>

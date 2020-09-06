@@ -1,0 +1,105 @@
+@import url("../clean.css");
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+.tlk_zhgl {
+    height: 0.6rem;
+    background-color: #ffffff;
+    font-size: 0.14rem;
+    line-height: 0.5rem;
+    border-radius: 0.06rem 0.06rem 0rem 0rem;
+}
+
+.tlk_zhgl div {
+    cursor: pointer;
+    height: 0.4rem;
+    font-size: 0.16rem;
+    text-align: center;
+    margin: 0 0.4rem;
+    float: left;
+    border-bottom: 0.03rem solid #ff403a;
+}
+
+.tlk_from_box {
+    padding: 0.3rem 6rem 0.01rem 0.5rem;
+    margin-top: 0.2rem;
+    background-color: #ffffff;
+}
+
+#zhaq .tlk_from_box .el-form .denglu input {
+    width: 3rem;
+    height: 0.34rem;
+}
+
+#zhaq .tlk_from_box .el-form-item .tlk_select .el-input .el-input__inner {
+    width: 0.9rem;
+    height: 0.34rem;
+}
+
+#zhaq .tlk_from_box .el-form-item .tlk_diqu .el-input .el-input__inner {
+    width: 1.44rem;
+    height: 0.34rem;
+}
+
+.tlk_mima {
+    color: #ff403a;
+    font-size: 0.14rem;
+}
+
+.tlk_xiugai:hover {
+    border: solid 0.01rem #fc5f5a;
+    color: #fc5f5a;
+    background-color: rgb(251 251 251);
+}
+
+.tlk_xiugai {
+    cursor: pointer;
+    margin-left: 0.2rem;
+    display: inline-block;
+    text-align: center;
+    line-height: 0.36rem;
+    width: 0.92rem;
+    height: 0.36rem;
+    border: solid 0.01rem #ff403a;
+    color: #ff403a;
+    font-size: 0.14rem;
+}
+
+.tlk_bangding {
+    cursor: pointer;
+    margin-left: 0.2rem;
+    display: inline-block;
+    text-align: center;
+    line-height: 0.36rem;
+    width: 0.92rem;
+    height: 0.36rem;
+    border: solid 0.01rem #ff403a;
+    color: #ff403a;
+    font-size: 0.14rem;
+}
+
+.tlk_baochun:hover {
+    background-color: #fd5550;
+}
+
+.tlk_baochun {
+    cursor: pointer;
+    background-color: #ff403a;
+    color: #ffffff;
+    font-size: 0.16rem;
+    text-align: center;
+    line-height: 0.4rem;
+    width: 1.34rem;
+    height: 0.4rem;
+}
+
+#zhaq .tlk_from_box .el-form .tlk_shouji {
+    width: 2rem;
+}
+
+#zhaq .tlk_from_box .el-form .tlk_shouji input {
+    width: 2rem;
+    height: 0.4rem;
+}

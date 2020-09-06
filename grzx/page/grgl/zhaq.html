@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../../css/grgl/zhaq.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/element-ui.css" />
+	<script src="../../js/adapotion-	1.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/element-ui.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		window.onload = function () {
+			getRem(1124, 100)
+		};
+		window.onresize = function () {
+			getRem(1124, 100)
+		};
+		function getRem(pwidth, prem) {
+			var html = document.getElementsByTagName("html")[0];
+			var oWidth = document.body.clientWidth || document.documentElement.clientWidth;
+			html.style.fontSize = oWidth / pwidth * prem + "px";
+		}
+	</script>
+	<!-- <link rel="stylesheet" type="text/css" href="../../css/media2.css" /> -->
+	<style type="text/css">
+		[v-cloak] {
+			display: none;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="zhaq" v-cloak>
+		<div class="hehe"></div>
+		<div class="tlk_zhgl">
+			<div>账户管理</div>
+		</div>
+		<div class="tlk_from_box">
+			<el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="80px" class="demo-ruleForm">
+				<el-form-item label="登录账号">
+					<el-input disabled class="denglu" v-model="ruleForm.account"></el-input>
+				</el-form-item>
+				<el-form-item label="邮箱" prop="email">
+					<el-input class="denglu"  v-model="ruleForm.email"></el-input>
+				</el-form-item>
+				<el-form-item label="昵称" prop="nickName">
+					<el-input class="denglu" placeholder="请输入昵称" v-model="ruleForm.nickName"></el-input>
+				</el-form-item>
+				<el-form-item label="性别">
+					<el-radio-group v-model="ruleForm.gender">
+						<el-radio label="0">保密</el-radio>
+						<el-radio label="1">男</el-radio>
+						<el-radio label="2">女</el-radio>
+					</el-radio-group>
+				</el-form-item>
+				<el-form-item label="真实姓名">
+					<el-input class="denglu" placeholder="请输入真是姓名" v-model="ruleForm.fullName"></el-input>
+				</el-form-item>
+				<el-form-item label="手机" prop="phone">
+					<el-input class="denglu" placeholder="请输入手机号" v-model="ruleForm.phone"></el-input>
+				</el-form-item>
+				<el-form-item label="QQ" prop="qq">
+					<el-input class="denglu"  maxlength="13" placeholder="请输入QQ号" v-model="ruleForm.qq"></el-input>
+				</el-form-item>
+				<el-form-item label="账户密码">
+					<span class="tlk_mima">*******</span>
+					<span @click="xiugai" class="tlk_xiugai">修改密码</span>
+				</el-form-item>
+				<el-form-item size="large">
+					<div class="tlk_baochun" @click="preservation">保存</div>
+				</el-form-item>
+			</el-form>
+		</div>
+	</div>
+	<script src="../../js/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/gyh/editpass.js" type="text/javascript" charset="utf-8"></script>
+
+</body>
+
+</html>

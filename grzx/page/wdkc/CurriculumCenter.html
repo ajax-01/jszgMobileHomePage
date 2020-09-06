@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		[v-cloak] {
+			display: none !important;
+		}
+	</style>
+	<!-- <link rel="stylesheet" type="text/css" href="../../css/wdkc/CurriculumCenter.css"/> -->
+	<link rel="stylesheet" type="text/css" href="../../css/wdkc/CurriculumCenter.css" />
+	<script>
+		window.onload = function () {
+			/* 720代表设计师给的设计稿的宽度，你的设计稿是多少，就写多少;100代表换算比例，这里写100是
+			  为了以后好算,比如，你测量的一个宽度是100px,就可以写为1rem,以及1px=0.01rem等等 */
+			getRem(1124, 100)
+		};
+		window.onresize = function () {
+			getRem(1124, 100)
+		};
+		function getRem(pwidth, prem) {
+			var html = document.getElementsByTagName("html")[0];
+			var oWidth = document.body.clientWidth || document.documentElement.clientWidth;
+			html.style.fontSize = oWidth / pwidth * prem + "px";
+		}
+	</script>
+	<link rel="stylesheet" type="text/css" href="../../css/media2.css" />
+</head>
+
+<body>
+	<div id="kczx" v-cloak>
+		<div class="tlk_top1">
+			<ul class="tlk_tab1 clearfix lmw_ajaxalltype">
+				<li class="li-tab" v-for="(item,index) in tabsParam" @click="toggleTabs(index)"
+					:class="{tlk_showli:index===nowIndex}">{{item}}</li>
+			</ul>
+		</div>
+		<div class="tlk_tab-item1_box">
+			<div class="tlk_tab-item1 tlk_showdiv">
+				<ul v-for="(culm, culmindex) in allcurriculmList" class="clearfix lmw_ajaxkc"
+					v-if="culmindex === nowIndex">
+					<li v-for="(culmChir, index) in culm.items">
+						<img class="tlk_titleImg" :src="culmChir.bigSrc">
+						<p class="tlk_banji">{{ culmChir.kcname }}</p>
+						<!-- <p class="tlk_details"></p> -->
+						<div class="tlk_buy">
+							<p class="tlk_price">￥{{ culmChir.disPrice }}</p>
+							<div class="lmw_flexright">
+								<img v-if="false" class="tlk_ShoppCar" src="../../img/kstk/icon_Shop拷贝2.png">
+								<input type="hidden" value="">
+								<span class="tlk_buy_button" @click="buyButton(culmChir)">购买</span>
+								<!-- <a href="#" class="tlk_buy_button">购买</a> -->
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script src="../../js/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/ajax.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/lmw/kczx.js" type="text/javascript" charset="utf-8"></script>
+</body>
+
+</html>

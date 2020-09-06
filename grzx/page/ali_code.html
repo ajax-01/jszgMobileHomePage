@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>支付宝</title>
+</head>
+
+<body>
+    <div id="box">
+
+    </div>
+</body>
+
+</html>
+
+<script>
+
+    var formHtml = sessionStorage.getItem("formHtml")
+    var box = document.getElementById("box")
+    box.innerHTML = formHtml
+    document.forms[0].submit()
+</script>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>课程播放</title>
+	<style>
+		.bounce-enter-active {
+			animation: bounce-in .6s;
+		}
+
+		.bounce-leave-active {
+			animation: bounce-in .6s reverse;
+		}
+
+		@keyframes bounce-in {
+			0% {
+				transform: scale(0);
+			}
+
+			100% {
+				transform: scale(1);
+			}
+		}
+
+
+		[v-cloak] {
+			display: none;
+		}
+	</style>
+	<script>
+		window.onload = function () {
+			getRem(1920, 100)
+		};
+		window.onresize = function () {
+			getRem(1920, 100)
+		};
+		function getRem(pwidth, prem) {
+			var html = document.getElementsByTagName("html")[0];
+			var oWidth = document.body.clientWidth || document.documentElement.clientWidth;
+			html.style.fontSize = oWidth / pwidth * prem + "px";
+		}
+	</script>
+	<link rel="stylesheet" type="text/css" href="../../css/element-ui.css" />
+
+	<link rel="stylesheet" type="text/css" href="../../css/media1.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/wdkc/zbkc.css" />
+	<script src="../../js/jquery-1.8.3.min.js"></script>
+
+	<script src="../../js/ajax.js"></script>
+
+</head>
+
+<!-- <body style="background-color:black;"> -->
+
+<body>
+	<div class="tlk_zb_bigBox" id="app" v-cloak>
+		<el-dialog
+				title=""
+				:visible.sync="gyhVistie"
+				width="20%"
+				top="15%"
+				center>
+				<div class="tlk_font_jiao">连接超时或用户未登录，请重新登录</div>
+				<span slot="footer" class="dialog-footer">
+					<el-button  type="primary" @click="goReturn">确 定</el-button>
+					<el-button @click="gyhVistie = false">取 消</el-button>
+				</span>
+            </el-dialog>
+		<div class="tlk_zb_top">
+			<div class="gyh_logo">
+				<img src="../../img/kstk/logo.png" alt="">
+			</div>
+			<div class="gyh_title">{{video_title}}
+			</div>
+			<div class="gyh_select" v-if="showselect">
+				<el-dropdown @command="getname">
+					<span class="el-dropdown-link">
+						切换科目<i class="el-icon-arrow-down el-icon--right"></i>
+					</span>
+					<el-dropdown-menu slot="dropdown">
+						<el-dropdown-item v-for="(item ,i) in options" :key="i" :command="item.value">
+							<el-button @click="centerDialogVisible = true"> {{item.name}}</el-button>
+						</el-dropdown-item>
+					</el-dropdown-menu>
+				</el-dropdown>
+			</div>
+
+			<el-dialog v-if="showselect" title="选择课程" :visible.sync="centerDialogVisible" width="30%" center>
+				<div class="dialog_box">
+					<!-- 直播 -->
+					<div class="div1" v-if="valueflag==1" v-for="(item,index) in  live_arr" :key="index">
+						<div @click="check_ck(index,item.id,item.name)" :class="[iskcclass==index?'gyh_kc_active':'']">
+							{{item.name}}
+						</div>
+					</div>
+					<!-- 精讲 -->
+					<div class="div1" v-if="valueflag==2" v-for="(item,index) in  fine_arr" :key="index">
+						<div @click="check_ck(index,item.id,item.name)" :class="[iskcclass==index?'gyh_kc_active':'']">
+							{{item.name}}
+						</div>
+					</div>
+				</div>
+				<span slot="footer" class="dialog-footer">
+					<el-button @click="centerDialogVisible = false">取 消</el-button>
+					<el-button type="primary" @click="confirm_kc ">确 定</el-button>
+				</span>
+			</el-dialog>
+
+			<div class="gyh_user">
+				<div class="gyh_user_head"><img src="../../img/man.png" alt="">
+				</div>
+				<div class="gyh_user_name">{{userInfo}}</div>
+			</div>
+		</div>
+		<div class="tlk_sp_box">
+			<div class="tlk_sp_left_box">
+				<div class="gyh_video_box">
+					<video class="gyh_video" v-if="state==4" controls autoplay type="video/mp4" playsinline="true"
+						:src="fake_url"></video>
+					<img class="img" v-if="state!==4" src="../../img/gyh_ship/suo_live_bg.jpg" alt="">
+
+					<div class="img_info" v-if="state=='gyh'">
+						<div class="title">该课程没有可学习的视频！</div>
+						<div class="button" @click.stop="goindexGM"> 回到购买</div>
+					</div>
+
+					<div class="img_info" v-if="state==1">
+						<div class="title">该课程需要购买才能观看学习！</div>
+						<div class="button" @click.stop="goindexGM"> 点击购买</div>
+					</div>
+					<div class="img_info" v-if="state==2">
+						<div class="title">该课程需要购买才能观看学习！</div>
+						<div class="button" @click.stop="goindexGM"> 点击购买</div>
+					</div>
+					<div class="img_info" v-if="state==3">
+						<div class="title">该课程需要购买才能观看学习！</div>
+						<div class="button" @click.stop="goindexGM"> 点击购买</div>
+					</div>
+				</div>
+				<div class="gyh_help_box">
+					<div class="gyh_help">
+						<div class="gyh_help_icon">
+							<img src="../../img/kstk/icon_exercises.png" alt="">
+						</div>
+						<span class="gyh_help_text">相关习题</span>
+					</div>
+					<div class="gyh_help">
+						<div class="gyh_help_icon">
+							<img src="../../img/kstk/icon_consult.png" alt="">
+						</div>
+						<span class="gyh_help_text">咨询客服</span>
+					</div>
+				</div>
+			</div>
+			<div class="tlk_sp_right_box">
+				<div class="tlk_sp_title">{{video_title}}</div>
+				<ul class="tlk_sp_list">
+
+					<!--单个课程 -->
+					<li class="clearfix" v-if="config=='subCourselds'" v-for="(item,i) in objlist" :key="i">
+						<div class="fl " :data-id="item.id" @click="showvideo(i)"> {{item.name}}</div>
+						<div class="tlk_bofang fr">
+						</div>
+						<transition name="bounce">
+							<div v-if="isshow === i">
+								<div class="video_box" v-for="(ite,ind) in item.videos" :key="ind">
+									<div class="child_video" :data-url="ite.videoUrl" :data-id="ite.chapterId"
+										@click.stop="playvideo(ite, ite.videoUrl,ind)"
+										:class="[ite.classname==true?'gyh_active':'']">
+										<div class="video_title" :data-url="ite.videoUrl">
+											{{ite.videoTitle}}{{ite.state}}</div>
+										<div class="icon_lock">
+											<img :src="ite.state==4?'':'../../img/gyh_ship/icon_lock.png'" alt="">
+											<img :src="ite.classname==true?'../../img/gyh_ship/icon_open.png':''"
+												alt="">
+										</div>
+									</div>
+								</div>
+							</div>
+						</transition>
+					</li>
+
+					<!-- 多个课程 -->
+					<li class="clearfix" v-if="config=='config'" v-for="(ite,i) in video_box" :key="i">
+						<div class="fl " @click="showvideo(i)"> {{ite.name}}</div>
+						<div class="tlk_bofang fr">
+						</div>
+						<transition name="bounce">
+							<div v-if="isshow === i">
+								<div class="video_box" v-for="(it,ind) in ite.videos" :key="ind">
+									<div class="child_video" :data-url="it.videoUrl" :data-id="it.chapterId"
+										@click.stop="playvideo(it, it.videoUrl,ind)"
+										:class="[it.classname==true?'gyh_active':'']" :url="fake_url">
+										<div class="video_title" :data-url="it.videoUrl">
+											{{it.videoTitle}}{{it.state}}</div>
+										<div class="icon_lock">
+											<img :src="it.state==4?'':'../../img/gyh_ship/icon_lock.png'" alt="">
+											<img :src="it.classname==true?'../../img/gyh_ship/icon_open.png':''" alt="">
+										</div>
+									</div>
+								</div>
+							</div>
+						</transition>
+					</li>
+
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script src="../../js/vue.js"></script>
+	<script src="../../js/element-ui.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/gyh/zbkc.js"></script>
+	<script type="text/javascript"></script>
+</body>
+
+</html>

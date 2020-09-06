@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			window.onload = function(){
+			    getRem(1920,100)
+			};
+			window.onresize = function(){
+			    getRem(1920,100)
+			};
+			function getRem(pwidth,prem){
+			    var html = document.getElementsByTagName("html")[0];
+			    var oWidth = document.body.clientWidth || document.documentElement.clientWidth;
+			    html.style.fontSize = oWidth/pwidth*prem + "px";
+			}
+		</script>
+		<link rel="stylesheet" type="text/css" href="../../css/media1.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/head.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/wdtk/mnks.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/element-ui.css"/>
+		<script src="../../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/element-ui.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="topnav">
+			<div class="layer clearfix">
+				<ul class="fl left">
+					<li class="mr40"><a href="../../index.html" target="_blank">首页</a></li>
+					<li class="mr40"><a href="javascript:void(0)">课程</a></li>
+					<li class="mr40"><a href="javascript:void(0)">题库</a></li>
+					<li class="mr40"><a href="javascript:void(0)">书店</a></li>
+					<li class="mr40"><a href="javascript:void(0)">直播</a></li>
+					<li><a href="javascript:void(0)"><img src="../../img/icon_phone.png" class="mr10 phone"> App下载</a></li>
+				</ul>
+				<ul class="fr right">
+					<li>
+						<a href=""><img src="../../img/man.png" class="tou">学考学考</a>
+					</li>
+					<li class="line"></li>
+					<li class="mr40">
+						<a href=""><img src="../../img/shopcar.png" class="icon-shop">购课车</a>
+					</li>
+					<li><a href="">在线咨询</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="mnks">
+			<div class="tlk_mnkc_title">当前位置：{{ name }} > {{ titles }}</div>
+			<!-- 头部内容 -->
+			<div class="tlk_top_content">
+				<div class="tlk_mn_title">{{ titles }}</div>
+				<div class="tlk_question_type">
+					<ul>
+						<li>单选题</li>
+						<li>多选题</li>
+						<li>判断题</li>
+						<li>不定项选择题</li>
+						<li>简答题</li>
+					</ul>
+				</div>
+			</div>
+			<!-- 答题内容 -->
+			<div class="tlk_question_box clearfix" id="tlk_zt">
+				<div class="tlk_left_question_box fl">
+					<ul class="tlk_question_ul">
+						<li v-for="(item, index) in TimiList" class="tlk_wodeIndex" v-if="topicContent === index">
+							<div v-if="item.questionType.id === 1" class="tlk_xuanzti"><span class="tlk_timu_type">单选题</span></div>
+							<div v-if="item.questionType.id === 2" class="tlk_xuanzti"><span class="tlk_timu_type">多选题</span></div>
+							<div v-if="item.questionType.id === 3" class="tlk_xuanzti"><span class="tlk_timu_type">判断题</span></div>
+							<div v-if="item.questionType.id === 4" class="tlk_xuanzti"><span class="tlk_timu_buding">不定项选择题</span></div>
+							<div v-if="item.questionType.id === 5" class="tlk_xuanzti"><span class="tlk_timu_type">简答题</span></div>
+							<div class="tlk_questionTitle_pading">
+								<div>{{ index + 1 }}、</div>
+								<div  v-if="item.questionType.id === 5 && item.situationData !== undefined" v-html="item.situationData.content"></div>
+								<div class="clearfix">
+									<div class="fl" v-html="item.questionTitle"></div>
+									<div v-if="item.questionType.id !== 5" class="fl">({{ item.score }}分)</div>
+								</div>
+							</div>
+							<div class="tlk_zuoti" style="display: flex;justify-content: space-between;">
+								<div>
+									<div v-for="(xuanze, xuezeindex) in item.xuanze" v-if="xuanze.he !== '' && xuanze.he !== undefined" class="tlk_cl_A" @click="mnksButton(item, xuanze, item.questionType.id, index)">
+										<div class="tlk_mnks_img" style="display: flex;align-items: center;">
+											<img :src="xuanze.src">
+											<div class="tlk_mnks_ti" v-html="xuanze.he"></div>
+										</div>
+									</div>
+								</div>
+								<div class="tlk_timi_button">
+									<div class="tlk_pro" @click="pro(item, index)">上一题</div>
+									<div class="tlk_next" @click="next(item, index)">下一题</div>
+								</div>
+								<el-input v-if="item.questionType.id === 5" type="textarea"  :autosize="{ minRows: 4, maxRows:9}"
+								    v-model="item.mainDesc" class="tlk_textarea"
+								      placeholder="请输入....">
+								 </el-input>
+								<span class="tlk_Collection" @click="collection(item, index)">
+									<div class="tlk_Collection_box">
+										<img :src="item.src" alt=""><div>收藏本题</div>
+									</div>
+								</span>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="tlk_right_question_box fr">
+					<div class="tlk_rightdtk">
+						<p class="tlk_righttop">
+							<span class="tlk_shuxian"></span>答题卡<img class="tlk_name_time" src="../../img/kszt/icon_time.png"><span class="tlk_count_down">{{ countDown }}</span></p>
+						<p class="tlk_dtkline"></p>
+						<div class="tlk_tmtype">
+							<p class="tlk_type">单项选择题</p>
+							<ul class="tlk_quanbuti">
+								<li ref="bgcolors" class="tlk_tman" @click="goAnchor(danxuan.numberIndex)" v-for="danxuan in danxuanList">{{ danxuan.numberIndex }}</li>
+							</ul>
+							<p class="tlk_type">多选题</p>
+							<ul class="tlk_quanbuti">
+								<li ref="bgcolors" class="tlk_tman" @click="goAnchor(duoxuan.numberIndex)" v-for="duoxuan in duoxuanList">{{ duoxuan.numberIndex }}</li>
+							</ul>
+							<p class="tlk_type">判断题</p>
+							<ul class="tlk_quanbuti">
+								<li ref="bgcolors" class="tlk_tman" @click="goAnchor(panduan.numberIndex)" v-for="panduan in panduanList">{{ panduan.numberIndex }}</li>
+							</ul>
+							<p class="tlk_type">不定项选择题</p>
+							<ul class="tlk_quanbuti">
+								<li ref="bgcolors" class="tlk_tman" @click="goAnchor(buding.numberIndex)" v-for=" buding in budingList">{{ buding.numberIndex }}</li>
+							</ul>
+							<p class="tlk_type">案例分析题</p>
+							<ul class="tlk_quanbuti">
+								<li ref="bgcolors" class="tlk_tman" @click="goAnchor(jianda.numberIndex)" v-for=" jianda in jiandaList">{{ jianda.numberIndex }}</li>
+							</ul>
+						</div>
+						<div class="tlk_dtkline2"></div>
+						<div class="tlk_tmstate">
+							<div class="tlk_allstate">
+								<div class="tlk_falsecolor"></div>
+								错误
+							</div>
+							<div class="tlk_allstate">
+								<div class="tlk_truecolor"></div>
+								正确
+							</div>
+							<div class="tlk_allstate">
+								<div class="tlk_rouzuocolor"></div>
+								漏做
+							</div>
+							<div class="tlk_allstate">
+								<div class="tlk_weizuocolor"></div>
+								未做
+							</div>
+						</div>
+						<div class="tlk_suspend">
+							暂停做题
+						</div>
+						<div @click="handPapers" class="tlk_jiaojuan">
+							立刻交卷
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="back_top">
+			<div style="width: 100px; height: 100px; background-color: black;">
+				回到顶部
+			</div>
+		</div>
+		<script src="../../js/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../../js/lmw/mnks.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$('#back_top').hide();
+			back_top()
+			function back_top() {
+			      window.onscroll = function () {
+			        var scrollTop = $(window).scrollTop();
+			        if (scrollTop > 1000){
+						console.log(11111)
+			          $('#back_top').show() 
+			        } else {
+			          $('#back_top').hide()
+			        }
+			      }
+			        $('html,body').animate({
+			          scrollTop: 0
+			        }, 500);
+			    }
+				document.getElementById("back_top").addEventListener("click",function(){
+					back_top();
+				})
+		</script>
+	</body>
+</html>

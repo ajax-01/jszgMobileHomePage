@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../../css/wdkc/LectureRecord.css" />
+		<script>
+			window.onload = function(){
+			    /* 720代表设计师给的设计稿的宽度，你的设计稿是多少，就写多少;100代表换算比例，这里写100是
+			      为了以后好算,比如，你测量的一个宽度是100px,就可以写为1rem,以及1px=0.01rem等等 */
+			    getRem(1124,100)
+			};
+			window.onresize = function(){
+			    getRem(1124,100)
+			};
+			function getRem(pwidth,prem){
+			    var html = document.getElementsByTagName("html")[0];
+			    var oWidth = document.body.clientWidth || document.documentElement.clientWidth;
+			    html.style.fontSize = oWidth/pwidth*prem + "px";
+			}
+		</script>
+		<link rel="stylesheet" type="text/css" href="../../css/media2.css" />
+	</head>
+	<body>
+		<div class="tlk_top">
+			<p>听课记录</p>
+
+		</div>
+		<ul class="tlk_tab clearfix">
+			<li>
+				<p>全部</p>
+			</li>
+			<!-- <li>教育新闻</li>
+			<li>成考答疑</li>
+			<li>成考指南</li> -->
+		</ul>
+		<div class="tlk_tab-item">
+			<div class="">
+				<div class="tlk_times">
+					<div class="tlk_yuan_box fl">
+						<div class="tlk_yuan"></div>
+					</div>
+					<div class="tlk_years fl">2020</div>
+					<div class="tlk_line_box fl">
+						<div class="tlk_line"></div>
+					</div>
+				</div>
+				<div class="tlk_ke clearfix">
+					<img class="tl_titleImg" src="../../img/ph1.png">
+					<div class="tlk_rightbox fr">
+						<div class="tlk_right_font">
+							<div class="fl">小学《综合素质+教育知识与能力+学科》全科直播班</div><i class="tlk_delete_img fr"><img src="../../img/icon_delete.png"></i>
+						</div>
+						<p class="tlk_teacher">第一章 教师职业理念</p>
+						<p class="tlk_beijinTime">06月28日14:35</p>
+						<div class="tlk_xue_box">
+							<div class="tlk_yixue">已学100%</div>
+							<div class="tlk_continue">继续学习</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../../js/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

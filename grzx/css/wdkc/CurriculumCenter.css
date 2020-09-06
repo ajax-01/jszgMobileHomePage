@@ -1,0 +1,147 @@
+@import url("../clean.css");
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+.tlk_top1 {
+    height: 0.5rem;
+    background-color: #ffffff;
+    border-radius: 0.06rem;
+    font-size: 0.14rem;
+}
+
+.tlk_tab1 {
+    height: 0.5rem;
+    background-color: #ffffff;
+    border-radius: 0.06rem;
+    font-size: 0.14rem;
+    line-height: 0.5rem;
+}
+
+.tlk_tab1 li {
+    cursor: pointer;
+    height: 0.4rem;
+    font-size: 0.16rem;
+    text-align: center;
+    margin: 0 0.4rem;
+    float: left;
+}
+
+.tlk_showli {
+    border-bottom: 0.03rem solid #ff403a;
+}
+
+.tlk_tab-item1 {
+    margin-top: 0.1rem;
+    display: none;
+}
+
+.tlk_tab-item1_box {
+    background-color: #ffffff;
+    width: 100%;
+}
+
+.tlk_showdiv {
+    display: block;
+}
+
+.tlk_tab-item1 ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+
+.tlk_tab-item1 ul li:hover {
+    transform: scale(1.1);
+}
+.tlk_tab-item1 ul li {
+    transition: 0.6s;
+
+    cursor: pointer;
+    box-shadow: 0.06rem 0.06rem 0.1rem #dfdfdf,
+        -0.06rem -0.06rem 0.1rem #fcffff;
+    margin: 0.15rem 0.3rem 0.15rem 0.3rem;
+    position: relative;
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 0.04rem;
+}
+
+
+
+
+
+.tlk_tab-item1 ul li .tlk_ShoppCar {
+    width: 0.19rem;
+    height: 0.18rem;
+}
+
+.tlk_tab-item1 ul li .tlk_titleImg {
+    width: 100%;
+}
+
+.tlk_banji {
+    text-align: center;
+    margin: 0.06rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-family: MicrosoftYaHei;
+    font-size: 0.16rem;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #333333;
+}
+
+.tlk_details {
+    margin: 0.06rem;
+    height: 0.6rem;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    font-family: MicrosoftYaHei;
+    font-size: 0.12rem;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #666666;
+}
+
+.tlk_price {
+    margin: 0.06rem;
+    font-family: DINBEKBold;
+    font-size: 0.18rem;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #ff403a;
+}
+
+.lmw_flexright {
+    margin-right: 0.05rem;
+}
+
+.tlk_buy {
+    margin-top: 0.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 0.35rem;
+}
+
+.tlk_buy_button {
+    cursor: pointer;
+    margin-left: 0.12rem;
+    text-align: center;
+    line-height: 0.26rem;
+    display: inline-block;
+    color: #ff403a;
+    font-size: 0.14rem;
+    width: 0.64rem;
+    height: 0.26rem;
+    border-radius: 0.13rem;
+    border: solid 1px #ff403a;
+}

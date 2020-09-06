@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script>
+		window.onload = function () {
+			/* 720代表设计师给的设计稿的宽度，你的设计稿是多少，就写多少;100代表换算比例，这里写100是
+			  为了以后好算,比如，你测量的一个宽度是100px,就可以写为1rem,以及1px=0.01rem等等 */
+			getRem(1920, 100)
+		};
+		window.onresize = function () {
+			getRem(1920, 100)
+		};
+		function getRem(pwidth, prem) {
+			var html = document.getElementsByTagName("html")[0];
+			var oWidth = document.body.clientWidth || document.documentElement.clientWidth;
+			html.style.fontSize = oWidth / pwidth * prem + "px";
+		}
+	</script>
+	<link rel="stylesheet" type="text/css" href="../../css/media1.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/wdkc/kcxq.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/element-ui.css" />
+	<style type="text/css">
+		[v-cloak] {
+			display: none;
+		}
+	</style>
+</head>
+
+<body style="background-color: white;">
+	<div id="topnav">
+		<div class="layer clearfix">
+			<ul class="fl left">
+				<li class="mr40"><a href="../../index.html" target="_blank">首页</a></li>
+				<li class="mr40"><a href="javascript:void(0)">课程</a></li>
+				<li class="mr40"><a href="javascript:void(0)">题库</a></li>
+				<li class="mr40"><a href="javascript:void(0)">书店</a></li>
+				<li class="mr40"><a href="javascript:void(0)">直播</a></li>
+				<li><a href="javascript:void(0)"><img src="../../img/icon_phone.png" class="mr10 phone"> App下载</a></li>
+			</ul>
+			<ul class="fr right">
+				<li>
+					<a href=""><img src="../../img/man.png" class="tou">学考学考</a>
+				</li>
+				<li class="line"></li>
+				<li class="mr40">
+					<a href=""><img src="../../img/shopcar.png" class="icon-shop">购课车</a>
+				</li>
+				<li><a href="">在线咨询</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="kcxq" v-cloak>
+		<el-dialog
+				title=""
+				:visible.sync="gyhVistie"
+				width="20%"
+				top="15%"
+				center>
+				<div class="tlk_font_jiao">连接超时或用户未登录，请重新登录</div>
+				<span slot="footer" class="dialog-footer">
+					<el-button  type="primary" @click="goReturn">确 定</el-button>
+					<el-button @click="gyhVistie = false">取 消</el-button>
+				</span>
+            </el-dialog>
+		<div class="lmw_bk"></div>
+		<div class="lmw_books layer">
+			<img :src="classroomChilds.picUrl1">
+			<div class="fl lmw_right">
+				<p class="lmw_zbtop"><span class="lmw_yh">优惠</span>{{ classroomChilds.kcname }}</p>
+				<p class="lmw_p2">{{ classroomChilds.disInfo }}</p>
+				<p class="lmw_p3">
+					<span>价&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;格：</span>
+					<span class="lmw_color">¥</span>
+					<span class="lmw_color lmw_price">{{ classroomChilds.disPrice }}</span>
+					<del v-if="classroomChilds.price">原价： ¥ {{ classroomChilds.price }}</del>
+				</p>
+				<div class="lmw_allvideo">
+					<p class="lmw_p4">
+						包含班型：
+						<span v-for="(item,index) in tabsParam" @click="toggleTabs(item, index)"
+							:class="[index===nowIndex?'lmw_border1':'lmw_border2']" class="lmw_choose">{{ item }}</span>
+					</p>
+					<div class="lmw_flxe">
+						<div class="fl lmw_allkc">
+							<span>包含课程：</span>
+						</div>
+						<ul class="lmw_kcs" v-for="(classR, classRIndex) in classroomList"
+							v-if="classRIndex === nowIndex">
+							<li v-for="(child, childIndex) in classR.childs" @click="toggleTabs1(child, childIndex)"
+								:class="[childIndex===nowIndex1?'lmw_border1':'lmw_border2']" class="lmw_choose">
+								{{ child.kcname }}</li>
+						</ul>
+					</div>
+				</div>
+				<div class="lmw_ljgm_jrgwc fl">
+					<span @click="buyButton" class="lmw_ljgm">立即购买</span>
+					<span @click="buyButton" class="lmw_jrgwc"><img
+							src="../../img/wdkc_img/icon_Shop3_1.png">加入购物车</span>
+				</div>
+				<span @click="freeAudition" class="fr lmw_mfst">
+					<img src="../../img/wdkc_img/icon_audition.png">
+					免费试听
+				</span>
+			</div>
+		</div>
+		<div class="lmw_bk"></div>
+		<div class="lmw_all">
+			<div class="lmw_boderbottom">
+				<div class="layer lmw_kcxq_pj">
+					<span ref="ke" @click="keButton('1')" :class="{lmw_linebottom:tabsIndex==0}">课程详情</span>
+					<span ref="xueyuan" @click="keButton('2')" :class="{lmw_linebottom:tabsIndex==1}">学员评价</span>
+				</div>
+			</div>
+			<div class="layer clearfix tlk_html_content" v-if="tabsIndex === 0">
+				<div class="tlk_big_Img_box">
+					<div class="tlk_logo">
+						<img style="margin-top: 0.2rem;" src="http://s1.s.360xkw.com/class/images/logo.png">
+					</div>
+					<div v-html="classroomChilds.description"></div>
+				</div>
+			</div>
+			<div v-if="tabsIndex === 1">
+				<div class="layer clearfix">
+					<textarea name="" v-model="texts" id="" class="lmw_tjpl"
+						placeholder="请发表您对课程的评价或疑问，至少5个字哦~"></textarea>
+					<button class="lmw_fbpl fr" @click="submitAppComment" type="button">发表评论</button>
+				</div>
+				<div class="lmw_1126"></div>
+				<div class="lmw_allpl layer">
+					<ul>
+						<li class="clearfix" v-for="(com, coMindex) in comments" :key="coMindex">
+							<img :src="com.user.smalImageUrl" class="fl">
+							<div class="fl lmw_namenr">
+								<div class="lmw_time fl">
+									<p class="lmw_username fl">{{ com.user.nickName }}</p>
+									<p class="lmw_username fr">{{ com.recordTime }}</p>
+								</div>
+								<p class="lmw_ftcolor6">{{ com.content }}</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<el-dialog title="提示" :visible.sync="centerDialogVisible" width="30%" center>
+			<div v-if="buys === true" style="text-align: center;">
+				该课程已添加至购物车
+			</div>
+			<div v-if="buys === false" style="text-align: center;">
+				成功将课程添加至购物车
+			</div>
+			<span slot="footer" class="dialog-footer">
+				<el-button @click="centerDialogVisible = false">取 消</el-button>
+				<el-button v-if="buys === true" type="primary" @click="goIndexGWC">去结算</el-button>
+				<el-button v-if="buys === false" type="primary" @click="centerDialogVisible = false">确 定</el-button>
+			</span>
+		</el-dialog>
+	</div>
+	<!-- <script src="../js/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script> -->
+	<script src="../../js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/element-ui.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/lmw/kcxq.js" type="text/javascript" charset="utf-8"></script>
+</body>
+
+</html>
