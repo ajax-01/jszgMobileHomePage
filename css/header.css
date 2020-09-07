@@ -19,7 +19,7 @@ a {
     color: inherit;
 }
 
-.yzfFlex {
+.yzf-yzfFlex {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -27,12 +27,12 @@ a {
 }
 
 
-.loginButPar {
+.yzf-loginButPar {
     justify-content: space-between;
     width: 3.34rem;
 }
 
-.loginBut {
+.yzf-loginBut {
     width: 1.16rem;
     height: 0.56rem;
     background-color: white;
@@ -43,7 +43,7 @@ a {
     align-items: center;
 }
 
-.headerFirstDiv {
+.yzf-headerFirstDiv {
     background-image: linear-gradient(90deg,
     #ff403a 0%,
     #ff6949 100%);
@@ -54,33 +54,33 @@ a {
     align-items: center;
 }
 
-.headerFirstDivC1 {
+.yzf-headerFirstDivC1 {
     width: 7rem;
     margin: 0 auto;
 }
 
-.home {
+.yzf-home {
     width: 0.37rem;
     height: 0.35rem;
     margin-right: 0.05rem;
 
 }
 
-.search {
+.yzf-search {
     width: 0.32rem;
     height: 0.32rem;
 }
 
-.navigation {
+.yzf-navigation {
     list-style: none;
 
 }
 
-.navigation :first-child {
+.yzf-navigation :first-child {
     color: #333333;
 }
 
-.slideshow {
+.yzf-slideshow {
     width: 7.02rem;
     height: 3rem;
     background: #999999;
@@ -88,7 +88,7 @@ a {
 
 }
 
-.jytt {
+.yzf-jytt {
     width: 7.02rem;
     height: 1.1rem;
     background-color: #ffffff;
@@ -97,26 +97,26 @@ a {
     justify-content: right;
 }
 
-.jytt img {
+.yzf-jytt img {
     width: 0.58rem;
     height: 0.57rem;
     margin-left: 0.3rem;
     margin-right: 0.3rem;
 }
 
-.jytt i {
+.yzf-jytt i {
     border-right: 1px solid #dedede;
     height: 0.34rem;
     margin-right: 0.3rem;
 }
 
-.jytt .wz {
+.yzf-jytt .yzf-wz {
     color: #666666;
     font-size: 0.24rem;
 }
 
 
-.outer-container {
+.yzf-outer-container {
     overflow: hidden;
     width: 100%;
     height: 0.9rem;;
@@ -124,22 +124,22 @@ a {
     margin-bottom: 0.2rem;
 }
 
-.container {
+.yzf-container {
     overflow-x: scroll;
     overflow-y: hidden;
     height: 1.1rem;
 }
 
-.container ul {
+.yzf-container ul {
     height: 0.9rem;
 
 }
 
-.container ul li:last-child {
+.yzf-container ul li:last-child {
     padding-right: 0.41rem;
 }
 
-.container ul li {
+.yzf-container ul li {
     white-space: nowrap;
     color: #999999;
     margin-left: 0.41rem;
@@ -147,7 +147,7 @@ a {
     line-height: 0.9rem;
 }
 
-.container ul li:first-child::after {
+.yzf-container ul li:first-child::after {
     content: "";
     display: block;
     width: 100%;
@@ -163,31 +163,31 @@ a {
 
 /*content*/
 
-.wi {
+.yzf-wi {
     width: 7.02rem;
     background-color: #ffffff;
     margin: 0.2rem auto 0;
 }
 
-.wi2 {
+.yzf-wi2 {
     width: 7.02rem;
     background-color: #ffffff;
     margin: 0.02rem auto 0;
 }
 
-.icon {
+.yzf-icon {
     color: #333333;
     font-size: 0.28rem;
     font-weight: normal;
     font-stretch: normal;
 }
 
-.icon img {
+.yzf-icon img {
     width: 1rem;
     height: 1rem;
 }
 
-.iconPre {
+.yzf-iconPre {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -197,7 +197,7 @@ a {
 
 }
 
-.gg {
+.yzf-gg {
     width: 7.50rem;
     height: 1.50rem;
     background-color: #ffffff;
@@ -207,7 +207,7 @@ a {
 
 }
 
-.gg div {
+.yzf-gg div {
     width: 0.94rem;
     position: relative;
     left: 5.1rem;
@@ -220,7 +220,7 @@ a {
 }
 
 
-.kslc {
+.yzf-kslc {
     height: 3.98rem;
     border-radius: 6px;
     padding-left: 0.21rem;
@@ -230,14 +230,14 @@ a {
 
 }
 
-.kslc .div1 {
+.yzf-kslc .yzf-div1 {
     display: flex;
     justify-content: left;
     align-items: center;
 
 }
 
-.kslc .div1 .div11 {
+.yzf-kslc .yzf-div1 .yzf-div11 {
     width: 0.06rem;
     height: 0.30rem;
     background-color: #ff413a;
@@ -245,14 +245,14 @@ a {
 
 }
 
-.kslc .div1 p {
+.yzf-kslc .yzf-div1 p {
     margin-left: 0.11rem;
     font-size: 0.32rem;
     font-weight: 600;
 
 }
 
-.sfsdf {
+.yzf-sfsdf {
     display: flex;
     justify-content: space-between;
     height: 2.54rem;
@@ -260,34 +260,34 @@ a {
     margin-top: 0.44rem
 }
 
-.lc {
+.yzf-lc {
     height: 100%;
     width: 4.9rem;
 
 }
 
 
-/*.fksdf :last-child {*/
+/*.yzf-fksdf :last-child {*/
 /*    height: 100%;*/
 /*    width: 4.9rem;*/
 
 /*}*/
 
 
-.iconPre > div {
+.yzf-iconPre > div {
     width: 100%;
     display: flex;
     justify-content: space-around;
 }
 
-.iconPre > div > div {
+.yzf-iconPre > div > div {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
 }
 
-.kslcan11 {
+.yzf-kslcan11 {
     width: 1.26rem;
     height: 0.58rem;
     background-color: #409be8;
@@ -298,12 +298,12 @@ a {
     color: #ffffff;
 }
 
-.kslcan11 img {
+.yzf-kslcan11 img {
     width: 0.24rem;
     height: 0.29rem;
 }
 
-.kslcan12 {
+.yzf-kslcan12 {
     width: 1.26rem;
     height: 0.58rem;
     background-color: #fe605f;
@@ -314,12 +314,12 @@ a {
     color: #ffffff;
 }
 
-.kslcan12 img {
+.yzf-kslcan12 img {
     width: 0.23rem;
     height: 0.26rem;
 }
 
-.kslcan13 {
+.yzf-kslcan13 {
     width: 1.26rem;
     height: 0.58rem;
     background-color: #5dc069;
@@ -330,12 +330,12 @@ a {
     color: #ffffff;
 }
 
-.kslcan13 img {
+.yzf-kslcan13 img {
     width: 0.26rem;
     height: 0.25rem;
 }
 
-.kslcan2 {
+.yzf-kslcan2 {
     font-size: 0.24rem;
     width: 1.5rem;
     height: 0.58rem;
@@ -346,7 +346,7 @@ a {
     align-items: center;
 }
 
-.line-1 {
+.yzf-line-1 {
     height: 1.98rem;
     width: 0.01rem;
     border-right: dotted 1px #999999;
@@ -356,7 +356,7 @@ a {
 
 }
 
-.yuan {
+.yzf-yuan {
     border-radius: 100%;
     width: 0.14rem;
     height: 0.14rem;
@@ -366,7 +366,7 @@ a {
     left: -0.07rem;
 }
 
-.flexColumn {
+.yzf-flexColumn {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -374,7 +374,7 @@ a {
     height: 100%;
 }
 
-.zcggP {
+.yzf-zcggP {
     height: 3.56rem;
     border-radius: 6px;
     padding-left: 0.21rem;
@@ -383,19 +383,19 @@ a {
     box-sizing: border-box;
 }
 
-.zcggHeader {
+.yzf-zcggHeader {
     display: flex;
     justify-content: space-between;
     align-items: center
 }
 
-.zcggHeaderC1 {
+.yzf-zcggHeaderC1 {
     display: flex;
     justify-content: center;
     align-items: center
 }
 
-.line-3 {
+.yzf-line-3 {
 
     width: 0.06rem;
     height: 0.30rem;
@@ -403,22 +403,22 @@ a {
     border-radius: 3px;
 }
 
-.zcggHeaderC1zcgg {
+.yzf-zcggHeaderC1zcgg {
     font-size: 0.32rem;
     margin-left: 0.11rem;
     font-weight: 600;
 }
 
-.zcggHeaderC1gdzx {
+.yzf-zcggHeaderC1gdzx {
     font-size: 0.24rem;
     color: #666666;
 }
 
-.zcggwz {
+.yzf-zcggwz {
     margin-top: 0.51rem
 }
 
-.cjwtlist {
+.yzf-cjwtlist {
     height: 0.9rem;
     border-radius: 6px 6px 0 0;
     display: flex;
@@ -429,13 +429,13 @@ a {
     box-sizing: border-box;
 }
 
-#cjwtC {
+#yzf-cjwtC{
     height: 6.82rem;
     border-radius: 0 0 6px 6px;
 }
 
 
-.zcgg {
+.yzf-zcgg {
     margin-top: 0.25rem;
     display: flex;
     justify-content: space-between;
@@ -445,12 +445,12 @@ a {
     padding-bottom: 0.1rem;
 }
 
-.zcgg :last-child {
+.yzf-zcgg :last-child {
     color: #999999;
     font-size: 0.24rem;
 }
 
-.cjwt {
+.yzf-cjwt {
     width: 1.8rem;
     height: 0.62rem;
     color: #999999;
@@ -460,7 +460,7 @@ a {
     align-items: center;
 }
 
-.cjwtRed {
+.yzf-cjwtRed {
     background-image: linear-gradient(0deg,
     #ff403a 0%,
     #ff6949 100%);
@@ -468,7 +468,7 @@ a {
 
 }
 
-.cjwt2 {
+.yzf-cjwt2 {
     padding: 0.3rem;
     box-sizing: border-box;
     height: 1.38rem;
@@ -476,7 +476,7 @@ a {
     color: #666666;
 }
 
-.cjwt2Span1 {
+.yzf-cjwt2Span1 {
     width: 1.4rem;
     height: 0.5rem;
     background-color: #ffe6e5;
@@ -487,18 +487,18 @@ a {
     line-height: 0.5rem;
 }
 
-.cjwt2Span2 {
+.yzf-cjwt2Span2 {
     font-size: 0.24rem;
 }
 
 
-.cjwt3 {
+.yzf-cjwt3 {
     display: flex;
     justify-content: center;
     margin-top: 0.36rem;
 }
 
-.cjwt3 span {
+.yzf-cjwt3 span {
     width: 2rem;
     height: 0.54rem;
     border: 1px solid red;
@@ -509,19 +509,19 @@ a {
     color: #ff403a;
 }
 
-.db {
+.yzf-db {
     display: block;
 }
 
-.dn {
+.yzf-dn {
     display: none;
 }
 
-.footerP {
+.yzf-footerP {
     text-align: center;
 }
 
-.gzwm {
+.yzf-gzwm {
     z-index: 100;
     height: 6.46rem;
     border-radius: 6px;
@@ -532,43 +532,43 @@ a {
 
 }
 
-.gzwmheader {
+.yzf-gzwmheader {
     display: flex;
     justify-content: left;
     align-items: center;
 }
 
-.gzwmheader div {
+.yzf-gzwmheader div {
     width: 0.06rem;
     height: 0.30rem;
     background-color: #ff413a;
     border-radius: 3px;
 }
 
-.gzwmheader p {
+.yzf-gzwmheader p {
     margin-left: 0.11rem;
     font-size: 0.32rem;
     font-weight: 600;
 }
 
-.gzwmimg {
+.yzf-gzwmimg {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center
 }
 
-.gzwmimg img {
+.yzf-gzwmimg img {
     width: 3.9rem;
     height: 3.9rem;
     margin-top: 0.3rem
 }
 
-.gzwmimg p {
+.yzf-gzwmimg p {
     margin-top: 0.12rem
 }
 
-.gzwmimg div {
+.yzf-gzwmimg div {
     font-size: 0.24rem;
     margin-top: 0.2rem;
     width: 3.78rem;
@@ -581,11 +581,11 @@ a {
 }
 
 
-.displayNone {
+.yzf-displayNone {
     display: none
 }
 
-#colorSelect {
+#yzf-colorSelect{
     position: fixed;
     top: 10rem;
     left: 6.3rem;
@@ -594,7 +594,7 @@ a {
     z-index: 1000;
 }
 
-.yqlj {
+.yzf-yqlj {
     padding: 0.26rem 0.24rem;
     box-sizing: border-box;
     background-color: #ffffff;
@@ -606,12 +606,12 @@ a {
     align-items: center
 }
 
-.yqlj p:first-child {
+.yzf-yqlj p:first-child {
     text-align: center;
     color: #666666;
 }
 
-.div48 {
+.yzf-div48 {
     width: 100%;
     height: 1.66rem;
     background-color: #ffffff;
@@ -625,7 +625,7 @@ a {
 
 }
 
-.div78 {
+.yzf-div78 {
     width: 3.73rem;
     height: 0.77rem;
     display: flex;
@@ -633,19 +633,19 @@ a {
     align-items: center
 }
 
-.div97 {
+.yzf-div97 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
 }
 
-.div97 img {
+.yzf-div97 img {
     width: 0.47rem;
     height: 0.48rem
 }
 
-.div97 p {
+.yzf-div97 p {
     font-size: 0.2rem
 }
 
